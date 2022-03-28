@@ -1,0 +1,15 @@
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\ProductosTracking.exe.config
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\ProductosTracking.exe
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\ProductosTracking.pdb
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.AssemblyReference.cache
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.SuggestedBindingRedirects.cache
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmCliente.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmListaClientes.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.Properties.Resources.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.GenerateResource.cache
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.CoreCompileInputs.cache
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.exe
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.pdb
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmListaVentas.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmMenu.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmVenta.resources
