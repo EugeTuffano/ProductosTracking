@@ -13,3 +13,6 @@ C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\Produc
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmListaVentas.resources
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmMenu.resources
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.FrmVenta.resources
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\BLL.dll
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\BLL.pdb
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.CopyComplete

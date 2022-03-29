@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductosTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="IDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Provincia" Type="int" Nullable="false" />
+    <Property Name="TipoDoc" Type="int" Nullable="false" />
+    <Property Name="NroDoc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IDProducto" />
+    </Key>
+    <Property Name="IDProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoCliente">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="IDProducto" Type="int" Nullable="false" />
+    <Property Name="IDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="IDProvincia" />
+    </Key>
+    <Property Name="IDProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="IDTipoDoc" />
+    </Key>
+    <Property Name="IDTipoDoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK__Cliente__Provinc__2D27B809">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="IDProvincia" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__TipoDoc__2E1BDC42">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="IDTipoDoc" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="TipoDoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductoC__IDCli__2F10007B">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="ProductoCliente">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductoC__IDPro__300424B4">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IDProducto" />
+      </Principal>
+      <Dependent Role="ProductoCliente">
+        <PropertyRef Name="IDProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProductosTrackingModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cliente__Provinc__2D27B809" Association="Self.FK__Cliente__Provinc__2D27B809">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__TipoDoc__2E1BDC42" Association="Self.FK__Cliente__TipoDoc__2E1BDC42">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductoC__IDCli__2F10007B" Association="Self.FK__ProductoC__IDCli__2F10007B">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductoC__IDPro__300424B4" Association="Self.FK__ProductoC__IDPro__300424B4">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ProductoCliente" EntitySet="ProductoCliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -42,10 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO\ClienteBLL.cs" />
+    <Compile Include="DTO\ClienteDetailDTO.cs" />
+    <Compile Include="DTO\ClienteDTO.cs" />
+    <Compile Include="DTO\ProductoDetailDTO.cs" />
+    <Compile Include="DTO\ProvinciaDetailDTO.cs" />
+    <Compile Include="DTO\TipoDocumentoDetailDTO.cs" />
+    <Compile Include="IBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b9a3835f-d917-479f-9100-1bb02723ac0a}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

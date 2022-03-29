@@ -55,6 +55,9 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>ProductosBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\DataContext.cs" />
+    <Compile Include="DAO\IDAO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>ProductosBD.tt</DependentUpon>
     </Compile>
