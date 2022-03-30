@@ -48,7 +48,6 @@
     <Compile Include="DTO\ProductoDetailDTO.cs" />
     <Compile Include="DTO\ProvinciaDetailDTO.cs" />
     <Compile Include="DTO\TipoDocumentoDetailDTO.cs" />
-    <Compile Include="IBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

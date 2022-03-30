@@ -69,7 +69,6 @@ namespace ProductosTracking
                     cmbTipoDoc.SelectedIndex = -1;
                     txtNroDoc.Clear();
                 }
-
             }
         }
     }

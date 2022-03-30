@@ -53,67 +53,64 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Cliente.cs">
-      <DependentUpon>ProductosBD.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\DataContext.cs" />
-    <Compile Include="DAO\IDAO.cs" />
+    <Compile Include="ModelData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Producto.cs">
-      <DependentUpon>ProductosBD.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductoCliente.cs">
-      <DependentUpon>ProductosBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductosBD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductosBD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductosBD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductosBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductosBD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductosBD.edmx</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs">
-      <DependentUpon>ProductosBD.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoDocumento.cs">
-      <DependentUpon>ProductosBD.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ProductosBD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductosBD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="packages.config" />
-    <None Include="ProductosBD.edmx.diagram">
-      <DependentUpon>ProductosBD.edmx</DependentUpon>
+    <EntityDeploy Include="ModelData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelData.edmx.diagram">
+      <DependentUpon>ModelData.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProductosBD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ProductosBD.Context.cs</LastGenOutput>
-      <DependentUpon>ProductosBD.edmx</DependentUpon>
-    </Content>
-    <Content Include="ProductosBD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductosBD.edmx</DependentUpon>
-      <LastGenOutput>ProductosBD.cs</LastGenOutput>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelData.Context.cs</LastGenOutput>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+      <LastGenOutput>ModelData.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

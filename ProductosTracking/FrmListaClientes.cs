@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace ProductosTracking
 {
     public partial class FrmListaClientes : Form
     {
+        //ClienteDTO dto = new ClienteDTO();
+        ClienteBLL bll = new ClienteBLL();
+
         public FrmListaClientes()
         {
             InitializeComponent();
@@ -28,6 +32,19 @@ namespace ProductosTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+        }
+
+        private void FrmListaClientes_Load(object sender, EventArgs e)
+        {
+            List<ClienteDetailDTO> dto = ClienteBLL.Select();
+            dataGridView1.DataSource = dto;
+            dataGridView1.Columns[0].HeaderText = "Cliente ID";
+            dataGridView1.Columns[1].HeaderText = "Nombre";
+            dataGridView1.Columns[2].HeaderText = "Direccion";
+            dataGridView1.Columns[3].HeaderText = "Provincia";
+            dataGridView1.Columns[4].HeaderText = "Tipo de documento";
+            dataGridView1.Columns[5].HeaderText = "Numero de documento";
+
         }
     }
 }

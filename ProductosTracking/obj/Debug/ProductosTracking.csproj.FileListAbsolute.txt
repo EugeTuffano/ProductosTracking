@@ -16,3 +16,8 @@ C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\Produc
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\BLL.dll
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\BLL.pdb
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\obj\Debug\ProductosTracking.csproj.CopyComplete
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.dll
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\EntityFramework.dll
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.pdb
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.dll.config
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\EntityFramework.xml
