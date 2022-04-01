@@ -13,7 +13,7 @@ namespace ProductosTracking
 {
     public partial class FrmListaClientes : Form
     {
-        //ClienteDTO dto = new ClienteDTO();
+        ClienteDTO dto = new ClienteDTO();
         ClienteBLL bll = new ClienteBLL();
 
         public FrmListaClientes()
@@ -36,8 +36,8 @@ namespace ProductosTracking
 
         private void FrmListaClientes_Load(object sender, EventArgs e)
         {
-            List<ClienteDetailDTO> dto = ClienteBLL.Select();
-            dataGridView1.DataSource = dto;
+            List<ClienteDetailDTO> listdto = ClienteBLL.Select();
+            dataGridView1.DataSource = listdto;
             dataGridView1.Columns[0].HeaderText = "Cliente ID";
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Direccion";
@@ -45,6 +45,13 @@ namespace ProductosTracking
             dataGridView1.Columns[4].HeaderText = "Tipo de documento";
             dataGridView1.Columns[5].HeaderText = "Numero de documento";
 
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            List<ClienteDetailDTO> list = ClienteBLL.Select();
+            list = list.Where(x => x.Nombre.Contains(txtNombre.Text)).ToList();
+            dataGridView1.DataSource = list;
         }
     }
 }

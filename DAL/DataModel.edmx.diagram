@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad4fa488a5c94c78ab6db36dc28ee282" Name="Diagram1">
+        <EntityTypeShape EntityType="ProductosTrackingModel.Cliente" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductosTrackingModel.Producto" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductosTrackingModel.ProductoCliente" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductosTrackingModel.Provincia" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductosTrackingModel.TipoDocumento" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="ProductosTrackingModel.FK__Cliente__Provinc__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductosTrackingModel.FK__Cliente__TipoDoc__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductosTrackingModel.FK__ProductoC__IDCli__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductosTrackingModel.FK__ProductoC__IDPro__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

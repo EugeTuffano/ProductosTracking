@@ -41,14 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DTO\ClienteBLL.cs" />
+    <Compile Include="ClienteBLL.cs" />
     <Compile Include="DTO\ClienteDetailDTO.cs" />
     <Compile Include="DTO\ClienteDTO.cs" />
     <Compile Include="DTO\ProductoDetailDTO.cs" />
     <Compile Include="DTO\ProvinciaDetailDTO.cs" />
     <Compile Include="DTO\TipoDocumentoDetailDTO.cs" />
+    <Compile Include="DTO\VentaDetailDTO.cs" />
+    <Compile Include="DTO\VentaDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentaBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
