@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using BLL.DTO;
+using DTO;
 
 namespace ProductosTracking
 {
     public partial class FrmCliente : Form
     {
         public ClienteDTO dto = new ClienteDTO();
-        ClienteBLL bll = new ClienteBLL();
+        public ClienteBLL bll = new ClienteBLL();
         public FrmCliente()
         {
             InitializeComponent();
@@ -33,12 +33,15 @@ namespace ProductosTracking
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-            /*
+            dto = bll.Select();
             cmbProvincia.DataSource = dto.Provincias;
-            cmbProvincia.DisplayMember = "Provincias";
-            cmbProvincia.ValueMember = "ID";
+            cmbProvincia.DisplayMember = "Descripcion";
+            cmbProvincia.ValueMember = "ProvinciaID";
             cmbProvincia.SelectedIndex = -1;
-            */
+            cmbTipoDoc.DataSource = dto.TipoDocumentos;
+            cmbTipoDoc.DisplayMember = "Descripcion";
+            cmbTipoDoc.ValueMember = "IDTipoDoc";
+            cmbTipoDoc.SelectedIndex = -1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -55,14 +58,15 @@ namespace ProductosTracking
                 MessageBox.Show("El número del documento está vacio");
             else
             {
-                ClienteDetailDTO product = new ClienteDetailDTO();
-                product.Nombre = txtNombreCliente.Text;
-                product.Provincia = Convert.ToInt32(cmbProvincia.SelectedValue);
-                product.TipoDocumento = Convert.ToInt32(cmbTipoDoc.SelectedValue);
-                product.NroDocumento = Convert.ToInt32(txtNroDoc);
-                if (bll.Insert(product))
+                ClienteDetailDTO cliente = new ClienteDetailDTO();
+                cliente.Nombre = txtNombreCliente.Text;
+                cliente.Direccion = txtDireccion.Text;
+                cliente.Provincia = Convert.ToInt32(cmbProvincia.SelectedValue);
+                cliente.TipoDocumento = Convert.ToInt32(cmbTipoDoc.SelectedValue);
+                cliente.NroDocumento = Convert.ToInt32(txtNroDoc.Text);
+                if (bll.Insert(cliente))
                 {
-                    MessageBox.Show("Product was added");
+                    MessageBox.Show("El cliente fue añadido");
                     txtNombreCliente.Clear();
                     txtDireccion.Clear();
                     cmbProvincia.SelectedIndex = -1;

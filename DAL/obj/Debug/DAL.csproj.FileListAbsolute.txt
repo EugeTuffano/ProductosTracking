@@ -10,3 +10,5 @@ C:\Users\eugen\source\repos\ProductosTracking\DAL\obj\Debug\DAL.csproj.CoreCompi
 C:\Users\eugen\source\repos\ProductosTracking\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\eugen\source\repos\ProductosTracking\DAL\obj\Debug\DAL.dll
 C:\Users\eugen\source\repos\ProductosTracking\DAL\obj\Debug\DAL.pdb
+C:\Users\eugen\source\repos\ProductosTracking\DAL\bin\Debug\DTO.dll
+C:\Users\eugen\source\repos\ProductosTracking\DAL\bin\Debug\DTO.pdb

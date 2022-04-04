@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL.DTO;
+using DTO;
 using DAL;
 using DAL.DAO;
 
-namespace BLL.DTO
+namespace BLL
 {
     public class ClienteBLL
     {
-        ClienteDAO dao = new ClienteDAO();
+        ClienteDAO daoCliente = new ClienteDAO();
+        ProvinciaDAO daoProvincia = new ProvinciaDAO();
+        DocumentoDAO daoDocumento = new DocumentoDAO();
+
         public bool Delete(ClienteDetailDTO entity)
         {
             throw new NotImplementedException();
@@ -22,15 +25,16 @@ namespace BLL.DTO
             throw new NotImplementedException();
         }
 
-        public bool Insert(ClienteDetailDTO entity)
+        public bool Insert(ClienteDetailDTO cliente)
         {
-            throw new NotImplementedException();
+            return daoCliente.Insert(cliente);
         }
 
-        public static List<ClienteDetailDTO> Select()
+        /*
+        public static List<ClienteDetailDTO> Listar()
         {
             ClienteDAO dao = new ClienteDAO();
-            var lista = (from c in dao.Select()
+            var lista = (from c in dao.Listar()
                          select new ClienteDetailDTO
                          {
                              ClienteID = c.IDCliente,
@@ -42,6 +46,17 @@ namespace BLL.DTO
                          }).OrderBy(x => x.ClienteID).ToList();
 
             return lista;
+        }
+        */
+        
+
+        public ClienteDTO Select()
+        {
+            ClienteDTO dto = new ClienteDTO();
+            dto.TipoDocumentos = daoDocumento.Select();
+            dto.Clientes = daoCliente.Select();
+            dto.Provincias = daoProvincia.Select();
+            return dto;
         }
 
         public bool Update(ClienteDetailDTO entity)

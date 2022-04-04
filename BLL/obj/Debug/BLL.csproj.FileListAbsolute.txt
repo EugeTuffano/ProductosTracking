@@ -10,3 +10,5 @@ C:\Users\eugen\source\repos\ProductosTracking\BLL\obj\Debug\BLL.pdb
 C:\Users\eugen\source\repos\ProductosTracking\BLL\bin\Debug\DAL.dll
 C:\Users\eugen\source\repos\ProductosTracking\BLL\bin\Debug\DAL.pdb
 C:\Users\eugen\source\repos\ProductosTracking\BLL\bin\Debug\DAL.dll.config
+C:\Users\eugen\source\repos\ProductosTracking\BLL\bin\Debug\DTO.dll
+C:\Users\eugen\source\repos\ProductosTracking\BLL\bin\Debug\DTO.pdb

@@ -23,3 +23,5 @@ C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\Entity
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.dll
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.pdb
 C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DAL.dll.config
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DTO.dll
+C:\Users\eugen\source\repos\ProductosTracking\ProductosTracking\bin\Debug\DTO.pdb

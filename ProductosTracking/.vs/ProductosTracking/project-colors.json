@@ -20,7 +20,12 @@
       "ProjectGuid": "479be8e8-095d-4127-996b-d500e8266009",
       "DisplayName": "DAL2",
       "ColorIndex": 3
+    },
+    "e60a2f38-202c-45e3-86f0-7fe469ae50aa": {
+      "ProjectGuid": "e60a2f38-202c-45e3-86f0-7fe469ae50aa",
+      "DisplayName": "DTO",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

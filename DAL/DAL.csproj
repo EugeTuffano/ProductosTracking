@@ -57,7 +57,9 @@
     </Compile>
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\DataContext.cs" />
+    <Compile Include="DAO\DocumentoDAO.cs" />
     <Compile Include="DAO\ProductoDAO.cs" />
+    <Compile Include="DAO\ProvinciaDAO.cs" />
     <Compile Include="DAO\VentaDAO.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -113,6 +115,12 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{e60a2f38-202c-45e3-86f0-7fe469ae50aa}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
