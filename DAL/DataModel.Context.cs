@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProductosTrackingEntities : DbContext
+    public partial class ProductosTrackingEntities1 : DbContext
     {
-        public ProductosTrackingEntities()
-            : base("name=ProductosTrackingEntities")
+        public ProductosTrackingEntities1()
+            : base("name=ProductosTrackingEntities1")
         {
         }
     

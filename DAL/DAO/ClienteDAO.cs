@@ -39,6 +39,11 @@ namespace DAL.DAO
             }
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         /*
         public IQueryable<Cliente> Listar()
         {

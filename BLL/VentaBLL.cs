@@ -10,6 +10,11 @@ namespace BLL
 {
     public class VentaBLL
     {
+        VentaDAO daoVenta = new VentaDAO();
+        ClienteDAO daoCliente = new ClienteDAO();
+        ProductoDAO daoProducto = new ProductoDAO();
+        
+        /*
         public static List<VentaDetailDTO> Select()
         {
             
@@ -29,6 +34,21 @@ namespace BLL
                              Cantidad = v.Cantidad
                          }).OrderBy(x => x.ClienteID).ToList();
             return lista;
+        }
+        */
+
+        public bool Insert(VentaDetailDTO venta)
+        {
+            return daoVenta.Insert(venta);
+        }
+
+        public VentaDTO Select()
+        {
+            VentaDTO dto = new VentaDTO();
+            dto.Ventas = daoVenta.Select();
+            dto.Clientes = daoCliente.Select();
+            dto.Productos = daoProducto.Select();
+            return dto;
         }
     }
 }

@@ -25,10 +25,11 @@
         </EntityType>
         <EntityType Name="ProductoCliente">
           <Key>
-            <PropertyRef Name="IDCliente" />
+            <PropertyRef Name="IDVenta" />
           </Key>
+          <Property Name="IDVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCliente" Type="int" Nullable="false" />
           <Property Name="IDProducto" Type="int" Nullable="false" />
-          <Property Name="IDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Provincia">
@@ -69,9 +70,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoC__IDCli__2F10007B">
+        <Association Name="FK__ProductoC__IDCli__36B12243">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="0..1" />
+          <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="IDCliente" />
@@ -81,7 +82,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoC__IDPro__300424B4">
+        <Association Name="FK__ProductoC__IDPro__37A5467C">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -107,11 +108,11 @@
             <End Role="TipoDocumento" EntitySet="TipoDocumento" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoC__IDCli__2F10007B" Association="Self.FK__ProductoC__IDCli__2F10007B">
+          <AssociationSet Name="FK__ProductoC__IDCli__36B12243" Association="Self.FK__ProductoC__IDCli__36B12243">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="ProductoCliente" EntitySet="ProductoCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoC__IDPro__300424B4" Association="Self.FK__ProductoC__IDPro__300424B4">
+          <AssociationSet Name="FK__ProductoC__IDPro__37A5467C" Association="Self.FK__ProductoC__IDPro__37A5467C">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoCliente" EntitySet="ProductoCliente" />
           </AssociationSet>
@@ -133,7 +134,7 @@
           <Property Name="NroDoc" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Provincia1" Relationship="Self.FK__Cliente__Provinc__2D27B809" FromRole="Cliente" ToRole="Provincia" />
           <NavigationProperty Name="TipoDocumento" Relationship="Self.FK__Cliente__TipoDoc__2E1BDC42" FromRole="Cliente" ToRole="TipoDocumento" />
-          <NavigationProperty Name="ProductoCliente" Relationship="Self.FK__ProductoC__IDCli__2F10007B" FromRole="Cliente" ToRole="ProductoCliente" />
+          <NavigationProperty Name="ProductoCliente" Relationship="Self.FK__ProductoC__IDCli__36B12243" FromRole="Cliente" ToRole="ProductoCliente" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -141,17 +142,18 @@
           </Key>
           <Property Name="IDProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ProductoCliente" Relationship="Self.FK__ProductoC__IDPro__300424B4" FromRole="Producto" ToRole="ProductoCliente" />
+          <NavigationProperty Name="ProductoCliente" Relationship="Self.FK__ProductoC__IDPro__37A5467C" FromRole="Producto" ToRole="ProductoCliente" />
         </EntityType>
         <EntityType Name="ProductoCliente">
           <Key>
-            <PropertyRef Name="IDCliente" />
+            <PropertyRef Name="IDVenta" />
           </Key>
+          <Property Name="IDVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCliente" Type="Int32" Nullable="false" />
           <Property Name="IDProducto" Type="Int32" Nullable="false" />
-          <Property Name="IDCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__ProductoC__IDCli__2F10007B" FromRole="ProductoCliente" ToRole="Cliente" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__ProductoC__IDPro__300424B4" FromRole="ProductoCliente" ToRole="Producto" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__ProductoC__IDCli__36B12243" FromRole="ProductoCliente" ToRole="Cliente" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__ProductoC__IDPro__37A5467C" FromRole="ProductoCliente" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Provincia">
           <Key>
@@ -193,9 +195,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoC__IDCli__2F10007B">
+        <Association Name="FK__ProductoC__IDCli__36B12243">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="0..1" />
+          <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="IDCliente" />
@@ -205,7 +207,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoC__IDPro__300424B4">
+        <Association Name="FK__ProductoC__IDPro__37A5467C">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -217,7 +219,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ProductosTrackingEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProductosTrackingEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" />
@@ -231,11 +233,11 @@
             <End Role="TipoDocumento" EntitySet="TipoDocumento" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoC__IDCli__2F10007B" Association="Self.FK__ProductoC__IDCli__2F10007B">
+          <AssociationSet Name="FK__ProductoC__IDCli__36B12243" Association="Self.FK__ProductoC__IDCli__36B12243">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="ProductoCliente" EntitySet="ProductoCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoC__IDPro__300424B4" Association="Self.FK__ProductoC__IDPro__300424B4">
+          <AssociationSet Name="FK__ProductoC__IDPro__37A5467C" Association="Self.FK__ProductoC__IDPro__37A5467C">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoCliente" EntitySet="ProductoCliente" />
           </AssociationSet>
@@ -245,7 +247,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities">
+        <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities1">
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="ProductosTrackingModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
@@ -269,8 +271,9 @@
           <EntitySetMapping Name="ProductoCliente">
             <EntityTypeMapping TypeName="ProductosTrackingModel.ProductoCliente">
               <MappingFragment StoreEntitySet="ProductoCliente">
-                <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
+                <ScalarProperty Name="IDVenta" ColumnName="IDVenta" />
                 <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+                <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
               </MappingFragment>
             </EntityTypeMapping>

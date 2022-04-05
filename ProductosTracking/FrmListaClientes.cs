@@ -33,9 +33,34 @@ namespace ProductosTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+            FillData();
         }
 
         private void FrmListaClientes_Load(object sender, EventArgs e)
+        {
+            FillData();
+            /*
+            dto = bll.Select();
+            dataGridView1.DataSource = dto.Clientes;
+            dataGridView1.Columns[0].HeaderText = "Cliente ID";
+            dataGridView1.Columns[1].HeaderText = "Nombre";
+            dataGridView1.Columns[2].HeaderText = "Direccion";
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].HeaderText = "Provincia";
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].HeaderText = "Tipo de documento";
+            dataGridView1.Columns[7].HeaderText = "Numero de documento";
+            */
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            List<ClienteDetailDTO> list = dto.Clientes;
+            list = list.Where(x => x.Nombre.Contains(txtNombre.Text)).ToList();
+            dataGridView1.DataSource = list;
+        }
+
+        void FillData()
         {
             dto = bll.Select();
             dataGridView1.DataSource = dto.Clientes;
@@ -47,13 +72,6 @@ namespace ProductosTracking
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].HeaderText = "Tipo de documento";
             dataGridView1.Columns[7].HeaderText = "Numero de documento";
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            List<ClienteDetailDTO> list = dto.Clientes;
-            list = list.Where(x => x.Nombre.Contains(txtNombre.Text)).ToList();
-            dataGridView1.DataSource = list;
         }
     }
 }

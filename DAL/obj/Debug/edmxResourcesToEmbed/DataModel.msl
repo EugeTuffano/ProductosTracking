@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities">
+  <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities1">
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="ProductosTrackingModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
@@ -24,8 +24,9 @@
     <EntitySetMapping Name="ProductoCliente">
       <EntityTypeMapping TypeName="ProductosTrackingModel.ProductoCliente">
         <MappingFragment StoreEntitySet="ProductoCliente">
-          <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
+          <ScalarProperty Name="IDVenta" ColumnName="IDVenta" />
           <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
           <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
         </MappingFragment>
       </EntityTypeMapping>

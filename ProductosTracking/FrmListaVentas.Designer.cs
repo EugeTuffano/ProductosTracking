@@ -73,6 +73,7 @@
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(220, 32);
             this.txtBuscarProducto.TabIndex = 2;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
             // 
             // txtNombreCliente
             // 
@@ -91,6 +92,7 @@
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(220, 32);
             this.txtBuscarCliente.TabIndex = 0;
+            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             // 
             // panel2
             // 

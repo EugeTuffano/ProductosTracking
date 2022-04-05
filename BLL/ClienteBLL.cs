@@ -15,7 +15,7 @@ namespace BLL
         ProvinciaDAO daoProvincia = new ProvinciaDAO();
         DocumentoDAO daoDocumento = new DocumentoDAO();
 
-        public bool Delete(ClienteDetailDTO entity)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }

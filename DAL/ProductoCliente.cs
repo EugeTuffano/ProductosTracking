@@ -14,8 +14,9 @@ namespace DAL
     
     public partial class ProductoCliente
     {
-        public int IDProducto { get; set; }
+        public int IDVenta { get; set; }
         public int IDCliente { get; set; }
+        public int IDProducto { get; set; }
         public int Cantidad { get; set; }
     
         public virtual Cliente Cliente { get; set; }

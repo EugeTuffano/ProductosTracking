@@ -72,6 +72,7 @@ namespace ProductosTracking
                     cmbProvincia.SelectedIndex = -1;
                     cmbTipoDoc.SelectedIndex = -1;
                     txtNroDoc.Clear();
+                    this.Close();
                 }
             }
         }

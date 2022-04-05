@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class Cliente
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cliente()
+        {
+            this.ProductoCliente = new HashSet<ProductoCliente>();
+        }
+    
         public int IDCliente { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
@@ -23,6 +29,7 @@ namespace DAL
     
         public virtual Provincia Provincia1 { get; set; }
         public virtual TipoDocumento TipoDocumento { get; set; }
-        public virtual ProductoCliente ProductoCliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductoCliente> ProductoCliente { get; set; }
     }
 }

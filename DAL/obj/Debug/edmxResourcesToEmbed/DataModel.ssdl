@@ -20,10 +20,11 @@
   </EntityType>
   <EntityType Name="ProductoCliente">
     <Key>
-      <PropertyRef Name="IDCliente" />
+      <PropertyRef Name="IDVenta" />
     </Key>
+    <Property Name="IDVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
     <Property Name="IDProducto" Type="int" Nullable="false" />
-    <Property Name="IDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Cantidad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Provincia">
@@ -64,9 +65,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ProductoC__IDCli__2F10007B">
+  <Association Name="FK__ProductoC__IDCli__36B12243">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="0..1" />
+    <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
         <PropertyRef Name="IDCliente" />
@@ -76,7 +77,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ProductoC__IDPro__300424B4">
+  <Association Name="FK__ProductoC__IDPro__37A5467C">
     <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
     <End Role="ProductoCliente" Type="Self.ProductoCliente" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,11 +103,11 @@
       <End Role="TipoDocumento" EntitySet="TipoDocumento" />
       <End Role="Cliente" EntitySet="Cliente" />
     </AssociationSet>
-    <AssociationSet Name="FK__ProductoC__IDCli__2F10007B" Association="Self.FK__ProductoC__IDCli__2F10007B">
+    <AssociationSet Name="FK__ProductoC__IDCli__36B12243" Association="Self.FK__ProductoC__IDCli__36B12243">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="ProductoCliente" EntitySet="ProductoCliente" />
     </AssociationSet>
-    <AssociationSet Name="FK__ProductoC__IDPro__300424B4" Association="Self.FK__ProductoC__IDPro__300424B4">
+    <AssociationSet Name="FK__ProductoC__IDPro__37A5467C" Association="Self.FK__ProductoC__IDPro__37A5467C">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="ProductoCliente" EntitySet="ProductoCliente" />
     </AssociationSet>
