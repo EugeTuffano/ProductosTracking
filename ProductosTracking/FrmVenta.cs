@@ -15,8 +15,10 @@ namespace ProductosTracking
     public partial class FrmVenta : Form
     {
         VentaBLL bll = new VentaBLL();
-        VentaDetailDTO detail = new VentaDetailDTO();
         VentaDTO dto = new VentaDTO();
+        public VentaDetailDTO detail = new VentaDetailDTO();
+        public bool isUpdate = false;
+        
         public FrmVenta()
         {
             InitializeComponent();
@@ -42,17 +44,30 @@ namespace ProductosTracking
                 MessageBox.Show("Seleccionar producto");
             else
             {
-                VentaDetailDTO venta = new VentaDetailDTO();
-                venta.ClienteID = detail.ClienteID;
-                venta.Cantidad = Convert.ToInt32(txtCantidad.Text);
-                venta.ProductoID = Convert.ToInt32(cmbProducto.SelectedValue);
-                if (bll.Insert(venta))
+                if (!isUpdate)
                 {
-                    MessageBox.Show("La venta fue añadida");
-                    txtCliente.Clear();
-                    txtCantidad.Clear();
-                    cmbProducto.SelectedIndex = -1;
-                    //this.Close();
+                    VentaDetailDTO venta = new VentaDetailDTO();
+                    venta.ClienteID = detail.ClienteID;
+                    venta.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                    venta.ProductoID = Convert.ToInt32(cmbProducto.SelectedValue);
+                    if (bll.Insert(venta))
+                    {
+                        MessageBox.Show("La venta fue añadida");
+                        txtCliente.Clear();
+                        txtCantidad.Clear();
+                        cmbProducto.SelectedIndex = -1;
+                        //this.Close();
+                    }
+                }
+                else
+                {
+                    detail.ProductoID = Convert.ToInt32(cmbProducto.SelectedValue);
+                    detail.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                    if (bll.Update(detail))
+                    {
+                        MessageBox.Show("Venta actualizada");
+                        this.Close();
+                    }
                 }
             }
         }
@@ -66,22 +81,20 @@ namespace ProductosTracking
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-            //FillData();
             dto = bll.Select();
-            dataGridView1.DataSource = dto.Clientes;
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "Nombre";
-            dataGridView1.Columns[2].HeaderText = "Direccion";
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].HeaderText = "Provincia";
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].HeaderText = "Tipo de documento";
-            dataGridView1.Columns[7].HeaderText = "Numero de documento";
-
+            FillData();
             cmbProducto.DataSource = dto.Productos;
             cmbProducto.DisplayMember = "Descripcion";
             cmbProducto.ValueMember = "ProductoID";
             cmbProducto.SelectedIndex = -1;
+
+            if (isUpdate)
+            {
+                
+                txtCliente.Text = detail.NombreCliente;
+                txtCantidad.Text = detail.Cantidad.ToString();
+                cmbProducto.SelectedValue = detail.ProductoID;
+            }
         }
 
         private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
@@ -93,6 +106,15 @@ namespace ProductosTracking
 
         void FillData()
         {
+            dataGridView1.DataSource = dto.Clientes;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].HeaderText = "Nombre";
+            dataGridView1.Columns[2].HeaderText = "Direccion";
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].HeaderText = "Provincia";
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].HeaderText = "Tipo de documento";
+            dataGridView1.Columns[7].HeaderText = "Numero de documento";
             
         }
     }

@@ -219,7 +219,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ProductosTrackingEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProductosTrackingEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="ProductoCliente" EntityType="Self.ProductoCliente" />
@@ -247,7 +247,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities1">
+        <EntityContainerMapping StorageEntityContainer="ProductosTrackingModelStoreContainer" CdmEntityContainer="ProductosTrackingEntities2">
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="ProductosTrackingModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">

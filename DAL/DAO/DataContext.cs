@@ -8,6 +8,6 @@ namespace DAL.DAO
 {
     public class DataContext
     {
-        public ProductosTrackingEntities1 db = new ProductosTrackingEntities1();
+        public ProductosTrackingEntities2 db = new ProductosTrackingEntities2();
     }
 }

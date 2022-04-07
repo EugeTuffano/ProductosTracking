@@ -9,15 +9,6 @@ namespace DAL.DAO
 {
     public class ClienteDAO : DataContext
     {
-        public bool Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetBack()
-        {
-            throw new NotImplementedException();
-        }
 
         public bool Insert(ClienteDetailDTO entity)
         {
@@ -39,9 +30,20 @@ namespace DAL.DAO
             }
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Cliente cli = db.Cliente.First(x => x.IDCliente == id);
+                db.Cliente.DeleteCliente(cli);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         /*
@@ -51,11 +53,6 @@ namespace DAL.DAO
             return cli;
         }
         */
-
-        public bool Update()
-        {
-            throw new NotImplementedException();
-        }
 
         public List<ClienteDetailDTO> Select()
         {
@@ -91,6 +88,25 @@ namespace DAL.DAO
                     Clientes.Add(dto);
                 }
                 return Clientes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Update(ClienteDetailDTO entity)
+        { 
+            try
+            {
+                Cliente cli = db.Cliente.First(x => x.IDCliente == entity.ClienteID);
+                cli.Nombre = entity.Nombre;
+                cli.Direccion = entity.Direccion;
+                cli.Provincia = entity.Provincia;
+                cli.TipoDoc = entity.TipoDocumento;
+                cli.NroDoc = entity.NroDocumento;
+                db.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {

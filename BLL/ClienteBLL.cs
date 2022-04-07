@@ -15,9 +15,9 @@ namespace BLL
         ProvinciaDAO daoProvincia = new ProvinciaDAO();
         DocumentoDAO daoDocumento = new DocumentoDAO();
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return daoCliente.Delete(id);
         }
 
         public bool GetBack(ClienteDetailDTO entity)
@@ -48,7 +48,6 @@ namespace BLL
             return lista;
         }
         */
-        
 
         public ClienteDTO Select()
         {
@@ -58,10 +57,9 @@ namespace BLL
             dto.Provincias = daoProvincia.Select();
             return dto;
         }
-
-        public bool Update(ClienteDetailDTO entity)
+        public bool Update(ClienteDetailDTO cliente)
         {
-            throw new NotImplementedException();
+            return daoCliente.Update(cliente);
         }
     }
 }

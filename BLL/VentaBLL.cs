@@ -50,5 +50,15 @@ namespace BLL
             dto.Productos = daoProducto.Select();
             return dto;
         }
+
+        public bool Update(VentaDetailDTO detail)
+        {
+            return daoVenta.Update(detail);
+        }
+
+        public bool Delete(int id)
+        {
+            return daoVenta.Delete(id);
+        }
     }
 }

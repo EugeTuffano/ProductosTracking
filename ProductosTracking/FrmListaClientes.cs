@@ -16,6 +16,7 @@ namespace ProductosTracking
     {
         ClienteDTO dto = new ClienteDTO();
         ClienteBLL bll = new ClienteBLL();
+        ClienteDetailDTO detail = new ClienteDetailDTO();
 
         public FrmListaClientes()
         {
@@ -72,6 +73,53 @@ namespace ProductosTracking
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].HeaderText = "Tipo de documento";
             dataGridView1.Columns[7].HeaderText = "Numero de documento";
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Está seguro de eliminar al cliente?", "Warning!!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (bll.Delete(detail.ClienteID))
+                {
+                    MessageBox.Show("El cliente fue eliminado");
+                    FillData();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar cliente.");
+                }
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.ClienteID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            detail.Nombre = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            detail.Direccion = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.Provincia = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+            detail.NombreProvincia = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            detail.TipoDocumento = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+            detail.NombreTipoDoc = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            detail.NroDocumento = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (detail.ClienteID == 0)
+                MessageBox.Show("Seleccionar cliente de la tabla");
+            else
+            {
+                FrmCliente frm = new FrmCliente();
+                frm.detail = detail;
+                frm.isUpdate = true;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                bll = new ClienteBLL();
+                dto = bll.Select();
+                dataGridView1.DataSource = dto.Clientes;
+            }
         }
     }
 }

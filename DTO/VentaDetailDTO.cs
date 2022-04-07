@@ -8,7 +8,7 @@ namespace DTO
 {
     public class VentaDetailDTO
     {
-        
+        public int VentaID { get; set; }
         public int ClienteID { get; set; }
         public string NombreCliente { get; set; }
         public int ProductoID { get; set; }

@@ -16,7 +16,6 @@ namespace DAL.DAO
             return vent;
         }
         */
-
         public List<VentaDetailDTO> Select()
         {
             try
@@ -27,16 +26,18 @@ namespace DAL.DAO
                             join p in db.Producto on v.IDProducto equals p.IDProducto
                             select new
                             {
+                                ventaid = v.IDVenta,
                                 clienteId = v.IDCliente,
                                 nombrecliente = c.Nombre,
                                 productoid = v.IDProducto,
                                 descripcion = p.Descripcion,
                                 cantidad = v.Cantidad
-                            }).OrderBy(x => x.clienteId).ToList();
+                            }).OrderBy(x => x.ventaid).ToList();
 
                 foreach (var item in list)
                 {
                     VentaDetailDTO dto = new VentaDetailDTO();
+                    dto.VentaID = item.ventaid;
                     dto.ClienteID = item.clienteId;
                     dto.NombreCliente = item.nombrecliente;
                     dto.ProductoID = item.productoid;
@@ -45,6 +46,39 @@ namespace DAL.DAO
                     Ventas.Add(dto);
                 }
                 return Ventas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                ProductoCliente vent = db.ProductoCliente.First(x => x.IDVenta == id);
+                db.Cliente.DeleteVenta(vent);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool Update(VentaDetailDTO entity)
+        {
+            try
+            {
+                ProductoCliente vent = db.ProductoCliente.First(x => x.IDVenta == entity.VentaID);
+                vent.IDCliente = entity.ClienteID;
+                vent.IDProducto = entity.ProductoID;
+                vent.Cantidad = entity.Cantidad;
+                db.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {

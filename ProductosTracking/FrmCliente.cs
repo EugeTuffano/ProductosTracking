@@ -16,6 +16,8 @@ namespace ProductosTracking
     {
         public ClienteDTO dto = new ClienteDTO();
         public ClienteBLL bll = new ClienteBLL();
+        public ClienteDetailDTO detail = new ClienteDetailDTO();
+        public bool isUpdate = false;
         public FrmCliente()
         {
             InitializeComponent();
@@ -42,6 +44,15 @@ namespace ProductosTracking
             cmbTipoDoc.DisplayMember = "Descripcion";
             cmbTipoDoc.ValueMember = "IDTipoDoc";
             cmbTipoDoc.SelectedIndex = -1;
+
+            if (isUpdate)
+            {
+                txtNombreCliente.Text = detail.Nombre;
+                txtDireccion.Text = detail.Direccion;
+                cmbProvincia.SelectedValue = detail.Provincia;
+                cmbTipoDoc.SelectedValue = detail.TipoDocumento;
+                txtNroDoc.Text = detail.NroDocumento.ToString();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -58,21 +69,37 @@ namespace ProductosTracking
                 MessageBox.Show("El número del documento está vacio");
             else
             {
-                ClienteDetailDTO cliente = new ClienteDetailDTO();
-                cliente.Nombre = txtNombreCliente.Text;
-                cliente.Direccion = txtDireccion.Text;
-                cliente.Provincia = Convert.ToInt32(cmbProvincia.SelectedValue);
-                cliente.TipoDocumento = Convert.ToInt32(cmbTipoDoc.SelectedValue);
-                cliente.NroDocumento = Convert.ToInt32(txtNroDoc.Text);
-                if (bll.Insert(cliente))
+                if (!isUpdate)
                 {
-                    MessageBox.Show("El cliente fue añadido");
-                    txtNombreCliente.Clear();
-                    txtDireccion.Clear();
-                    cmbProvincia.SelectedIndex = -1;
-                    cmbTipoDoc.SelectedIndex = -1;
-                    txtNroDoc.Clear();
-                    this.Close();
+                    ClienteDetailDTO cliente = new ClienteDetailDTO();
+                    cliente.Nombre = txtNombreCliente.Text;
+                    cliente.Direccion = txtDireccion.Text;
+                    cliente.Provincia = Convert.ToInt32(cmbProvincia.SelectedValue);
+                    cliente.TipoDocumento = Convert.ToInt32(cmbTipoDoc.SelectedValue);
+                    cliente.NroDocumento = Convert.ToInt32(txtNroDoc.Text);
+                    if (bll.Insert(cliente))
+                    {
+                        MessageBox.Show("El cliente fue añadido");
+                        txtNombreCliente.Clear();
+                        txtDireccion.Clear();
+                        cmbProvincia.SelectedIndex = -1;
+                        cmbTipoDoc.SelectedIndex = -1;
+                        txtNroDoc.Clear();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    detail.Nombre = txtNombreCliente.Text;
+                    detail.Direccion = txtDireccion.Text;
+                    detail.Provincia = Convert.ToInt32(cmbProvincia.SelectedValue);
+                    detail.TipoDocumento = Convert.ToInt32(cmbTipoDoc.SelectedValue);
+                    detail.NroDocumento = Convert.ToInt32(txtNroDoc.Text);
+                    if (bll.Update(detail))
+                    {
+                        MessageBox.Show("Cliente actualizado");
+                        this.Close();
+                    }
                 }
             }
         }
